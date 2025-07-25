@@ -24,11 +24,13 @@ const Layout = () => {
   const sidebarContent = (
     <div className="h-full flex flex-col bg-white shadow-lg">
       <div className="flex h-16 items-center justify-center border-b border-gray-200">
-        <h1 className="text-xl font-bold text-gray-900">Restaurant Admin</h1>
+        <h1 className="text-xl font-bold text-gray text-left mr-[20%]">
+          Restaurant Admin
+        </h1>
       </div>
       <nav className="mt-8 px-4">
         <ul className="space-y-2">
-          {navigation.map((item) => {
+          {navigation?.map((item) => {
             const Icon = item.icon;
             const isActive = location.pathname === item.href;
             return (
@@ -130,10 +132,10 @@ const Layout = () => {
         {/* Top bar */}
         <div className="flex h-16 items-center justify-between bg-white px-6 shadow-sm">
           <div className="flex items-center">
-            <h2 className="text-lg font-semibold text-gray-900">
+            {/* <h2 className="text-lg font-semibold text-gray-900">
               {navigation.find((item) => item.href === location.pathname)
                 ?.name || 'Dashboard'}
-            </h2>
+            </h2> */}
           </div>
 
           <div className="flex items-center space-x-4">
