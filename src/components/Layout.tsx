@@ -95,7 +95,7 @@ const Layout = () => {
         onClick={() => setOpen(true)}
         aria-label="Open sidebar"
       >
-        <MenuIcon className="h-6 w-6 text-gray-800" />
+        <MenuIcon className="h-6 w-6 text-gray-800 " />
       </button>
 
       {/* Desktop sidebar */}

@@ -1,0 +1,7 @@
+put test folders all here
+node_modules
+coverage
+vitest
+vitest.config.ts
+vitest-example/
+tests/

@@ -1,8 +1,9 @@
 import { createSlice, type PayloadAction } from '@reduxjs/toolkit';
 import type { MenuState, MenuItem, Category } from '../../types';
+import { menuData } from '@/constants/menuData';
 
 const initialState: MenuState = {
-  items: [],
+  items: menuData,
   categories: [
     { id: '1', name: 'Appetizers', description: 'Start your meal right' },
     { id: '2', name: 'Main Course', description: 'Hearty main dishes' },
