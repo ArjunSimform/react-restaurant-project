@@ -234,14 +234,7 @@ const MenuList = () => {
 
       {/* Dialog outside the mapped list (only one dialog in DOM) */}
       <Dialog open={deleteDialogOpen} onOpenChange={setDeleteDialogOpen}>
-        <DialogContent
-          className="
-    top-[40%] left-[13%]  
-    md:translate-x-[40%] md:translate-y-[0%]
-    absolute
-    translate-x-[-5%] translate-y-[10%]
-  "
-        >
+        <DialogContent className="top-[50%] left-[50%] translate-x-[-50%] translate-y-[-50%]">
           <DialogHeader>
             <DialogTitle>Delete Menu Item</DialogTitle>
             <DialogDescription>

@@ -131,7 +131,7 @@
 'use client';
 
 import type React from 'react';
-import { useState } from 'react';
+import { useRef, useState } from 'react';
 import { useDispatch } from 'react-redux';
 import {
   loginStart,
@@ -142,6 +142,8 @@ import { User, Lock } from 'lucide-react';
 
 const LoginPage = () => {
   const dispatch = useDispatch();
+  const formRef = useRef<HTMLFormElement>(null);
+
   const [credentials, setCredentials] = useState({
     username: '',
     password: '',
@@ -151,6 +153,8 @@ const LoginPage = () => {
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
+    formRef.current?.scrollIntoView({ behavior: 'smooth', block: 'start' });
+
     setError('');
     setIsLoading(true);
     dispatch(loginStart());
@@ -208,7 +212,7 @@ const LoginPage = () => {
           </div>
 
           {/* Login Form */}
-          <form onSubmit={handleSubmit} className="space-y-6">
+          <form ref={formRef} onSubmit={handleSubmit} className="space-y-6">
             {/* Username Field */}
             <div>
               <label
