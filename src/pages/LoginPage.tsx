@@ -150,10 +150,14 @@ const LoginPage = () => {
   });
   const [error, setError] = useState('');
   const [isLoading, setIsLoading] = useState(false);
+  const handleFocus = () => {
+    if (formRef.current) {
+      formRef.current.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }
+  };
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    formRef.current?.scrollIntoView({ behavior: 'smooth', block: 'start' });
 
     setError('');
     setIsLoading(true);
@@ -229,6 +233,7 @@ const LoginPage = () => {
                   id="username"
                   name="username"
                   type="text"
+                  onFocus={handleFocus}
                   required
                   className="w-full pl-10 text-white placeholder:text-white md:placeholder:text-gray-400 pr-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-orange-500 focus:border-orange-500 outline-none transition-colors"
                   placeholder="Enter username"
