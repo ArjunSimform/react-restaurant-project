@@ -1,7 +1,7 @@
 import { test } from '@playwright/test';
 
 test('test', async ({ page }) => {
-  await page.goto('http://localhost:5173/login');
+  await page.goto('https://react-restaurant-project-fawn.vercel.app/login');
   await page.getByRole('heading', { name: 'Welcome Back' }).click();
   await page.getByText('Restaurant Admin Panel').click();
   await page.getByRole('textbox', { name: 'Username' }).click();
