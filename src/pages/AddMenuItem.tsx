@@ -8,6 +8,7 @@ import type { RootState } from '../store';
 import { addMenuItem } from '../store/slices/menuSlice';
 import { generateId } from '../lib/utils';
 import { ArrowLeft, Upload, X } from 'lucide-react';
+import { uploadImage } from '@/utils/addImageToCloud';
 
 const menuItemSchema = z.object({
   name: z
@@ -58,13 +59,22 @@ const AddMenuItem = () => {
   const handleImageUpload = (e: React.ChangeEvent<HTMLInputElement>) => {
     const file = e.target.files?.[0];
     if (file) {
-      const reader = new FileReader();
-      reader.onloadend = () => {
-        setImagePreview(reader.result as string);
-      };
-      reader.readAsDataURL(file);
+      uploadImage(file).then((url) => {
+        setImagePreview(url);
+      });
     }
   };
+
+  // const handleImageUpload = (e: React.ChangeEvent<HTMLInputElement>) => {
+  //   const file = e.target.files?.[0];
+  //   if (file) {
+  //     const reader = new FileReader();
+  //     reader.onloadend = () => {
+  //       setImagePreview(reader.result as string);
+  //     };
+  //     reader.readAsDataURL(file);
+  //   }
+  // };
 
   const removeImage = () => {
     setImagePreview('');

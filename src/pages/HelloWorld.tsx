@@ -1,7 +1,13 @@
-export default function HelloWorld({ name }: { name: string }) {
+export default function HelloWorld() {
   return (
-    <div>
-      <h1>Hello {name}</h1>
-    </div>
+    <button
+      onClick={() => {
+        throw new Error(
+          'This is your first error! Made by sentry under user name is Arjun Singh Gurjar'
+        );
+      }}
+    >
+      Break the world
+    </button>
   );
 }
